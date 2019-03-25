@@ -15,7 +15,7 @@ This package allows to easily connect any Laravel application to an instance of 
 
 
 ## Installation
-#### Using Composer
+### Using Composer
 The package can be installed using Composer:<br>
 `composer require mainstreamct/syncad-connector-laravel`<br><br>
 After installing, edit your `config/app.php`:
@@ -31,20 +31,20 @@ After installing, edit your `config/app.php`:
 
 
 ## Configuration
-#### Connecting things up
+### Connecting things up
 1. Log in to your Syncad installation and go to Admin > Apps
 2. Click '+' (Add existing application)
 3. Fill out your app's details (location, application key)
 4. Connect!
 
-#### Configuration options
+### Configuration options
 In `config/syncad.php`, you'll find the following options:
 1. `key` contains your application key, this should be set in your `.env` file
 1. `color` specifies a unique app color used in your Syncad dashboard to distinguish your application
 1. `name` is the application name that is stored on your Syncad instance upon connecting. It defaults to your `.env`'s `APP_NAME` key
 
 ## Usage
-####
+###
 
 ## Bugs
 Found a bug? Message us at support@mainstreamct.com or contact us via the Support environment in your Mainstream Web Portal (MainstreamCT customers only).

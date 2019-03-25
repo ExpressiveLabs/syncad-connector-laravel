@@ -25,6 +25,7 @@
 
       // Load the package middleware
       $this->app['router']->aliasMiddleware('syncad', MainstreamCT\SyncadConnectorLaravel\syncadGuard::class);
+      $this->app['router']->aliasMiddleware('cors', \Barryvdh\Cors\HandleCors::class);
     }
 
     /**

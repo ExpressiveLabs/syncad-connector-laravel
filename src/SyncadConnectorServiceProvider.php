@@ -14,14 +14,14 @@
     {
       // Publish the config file
       $this->publishes([
-        __DIR__.'/src/config.php' => config_path('syncad.php'),
+        __DIR__.'/config.php' => config_path('syncad.php'),
       ]);
 
       // Load the package routes
-      $this->loadRoutesFrom(__DIR__.'/src/routes.php');
+      $this->loadRoutesFrom(__DIR__.'/routes.php');
 
       // Load the package migrations
-      $this->loadMigrationsFrom(__DIR__.'/src/migrations');
+      $this->loadMigrationsFrom(__DIR__.'/migrations');
 
       // Load the package middleware
       $this->app['router']->aliasMiddleware('syncad', MainstreamCT\SyncadConnectorLaravel\syncadGuard::class);

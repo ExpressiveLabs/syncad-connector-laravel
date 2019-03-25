@@ -15,6 +15,7 @@ class AlterUsersTable extends Migration
   {
     Schema::table('users', function (Blueprint $table) {
       $table->string('syncad_key')->nullable();
+      $table->string('syncad_token');
     });
   }
 

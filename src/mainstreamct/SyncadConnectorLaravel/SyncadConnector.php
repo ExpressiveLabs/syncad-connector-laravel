@@ -2,26 +2,39 @@
   namespace mainstreamct\SyncadConnectorLaravel;
 
   use App\User;
-  use Illuminate\Http\Request;
   use Illuminate\Support\Facades\Auth;
+  use Illuminate\Support\Facades\Hash;
 
   class SyncadConnector
   {
-    /**
-     * Multiplies the two given numbers
-     * @param int $a
-     * @param int $b
-     * @return int
-     */
-    public function generateKey() {
+    // Generates an access token
+    static function generateKey() {
       $key = str_random(60);
       return $key;
     }
 
-    static function pokesLogin(Request $request) {
-      $user = User::where('email', $request->email)->where('id', $request->id)->first();
-      $data['key'] = $user->reKey();
-      return $data;
+    // Creates a user
+    static function makeUser($data) {
+      $pass = str_random(20);
+
+      $user = new User;
+      $user->email = $data->email;
+      $user->name = $data->name;
+      $user->password = Hash::make($pass);
+      $user->syncad_key = self::generateKey();
+      $user->syncad_token = Hash::make($data->token);
+      $user->type = 'admin';
+      $user->save();
+
+      return ['user' => $user, 'pass' => $pass];
+    }
+
+    static function pokesLogin($data) {
+      $user = User::where('email', $data->email)->first();
+      if(Hash::check($data->token, $user->token)) {
+        $data['key'] = $user->reKey();
+        return $data;
+      }
     }
 
     static function authenticate($key, $return) {

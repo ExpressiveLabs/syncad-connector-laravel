@@ -3,7 +3,7 @@
   use Illuminate\Http\Request;
 
   Route::get('/ext/auth', function(Request $request) {
-    return Syncad::login($request->token);
+    return Syncad::authenticate($request->key);
   });
 
   Route::prefix('api')->group(function () {

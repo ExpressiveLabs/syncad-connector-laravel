@@ -24,10 +24,10 @@
       return $data;
     }
 
-    static function authenticate($key, $args) {
+    static function authenticate($key, $return) {
       $user = User::where('syncad_key', $key)->first();
       if(Auth::loginUsingId($user->id)) {
-        return redirect('/admin');
+        return redirect($return);
       }
     }
 

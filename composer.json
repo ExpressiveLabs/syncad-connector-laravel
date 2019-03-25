@@ -1,0 +1,25 @@
+{
+  "name": "mainstreamct/syncad-connector-laravel",
+  "description": "Connector package for MainstreamCT's Syncad application platform",
+  "require": {
+    "barryvdh/laravel-cors": "^0.11.3"
+  },
+  "authors": [
+    {
+      "name": "MainstreamCT",
+      "email": "support@mainstreamct.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MainstreamCT\\syncad-connector-laravel\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MainstreamCT\\syncad-connector-laravel\\SyncadConnectorServiceProvider"
+      ]
+    }
+  }
+}

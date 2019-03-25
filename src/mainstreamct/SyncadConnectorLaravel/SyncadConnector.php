@@ -2,6 +2,7 @@
   namespace mainstreamct\SyncadConnectorLaravel;
 
   use App\User;
+  use Illuminate\Http\Request;
 
   class SyncadConnector
   {
@@ -16,7 +17,7 @@
       return $key;
     }
 
-    public function pokesLogin(Request $request) {
+    static function pokesLogin(Request $request) {
       $user = User::where('email', $request->email)->where('id', $request->id)->first();
       $data['key'] = $user->reKey();
       return $data;
@@ -29,12 +30,12 @@
       }
     }
 
-    private function validateKey($key) {
-      return $key === config('app.syncad.key');
+    static function validateKey($key) {
+      return $key === config('syncad.key');
     }
 
-    public function testConnection($key) {
-      $data['status'] = $this->validateKey($key);
+    static function testConnection($key) {
+      $data['status'] = self::validateKey($key);
       $data['name'] = 'inHouse';
       $data['color'] = '#ff991e';
 

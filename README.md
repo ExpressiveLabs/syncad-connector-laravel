@@ -44,7 +44,16 @@ In `config/syncad.php`, you'll find the following options:
 1. `name` is the application name that is stored on your Syncad instance upon connecting. It defaults to your `.env`'s `APP_NAME` key
 
 ## Usage
-###
+
+This package exposes the following endpoints that are used by Syncad.
+
+#### `connection/test`
+```Requires: key```<br>
+This endpoint tests the connection using the provided `key`.
+
+#### `login/init`
+```Requires: email, id, key```<br>
+This endpoint tests the connection using the provided `key`.
 
 ## Bugs
 Found a bug? Message us at support@mainstreamct.com or contact us via the Support environment in your Mainstream Web Portal (MainstreamCT customers only).

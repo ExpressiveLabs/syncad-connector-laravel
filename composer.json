@@ -21,7 +21,7 @@
         "mainstreamct\\SyncadConnectorLaravel\\SyncadConnectorServiceProvider"
       ],
       "aliases": {
-        "Pettenvolk": "mainstreamct\\SyncadConnectorLaravel\\SyncadConnector"
+        "Syncad": "mainstreamct\\SyncadConnectorLaravel\\SyncadConnector"
       }
     }
   }

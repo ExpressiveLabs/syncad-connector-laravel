@@ -12,13 +12,13 @@
   ],
   "autoload": {
     "psr-4": {
-      "MainstreamCT\\SyncadConnectorLaravel\\": "src/"
+      "mainstreamct\\SyncadConnectorLaravel\\": "mainstreamct/syncad-connector-laravel/src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "MainstreamCT\\SyncadConnectorLaravel\\SyncadConnectorServiceProvider"
+        "mainstreamct\\SyncadConnectorLaravel\\SyncadConnectorServiceProvider"
       ]
     }
   }

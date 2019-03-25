@@ -18,7 +18,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "MainstreamCT\\syncad-connector-laravel\\SyncadConnectorServiceProvider"
+        "MainstreamCT\\SyncadConnectorLaravel\\SyncadConnectorServiceProvider"
       ]
     }
   }

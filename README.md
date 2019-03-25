@@ -16,19 +16,22 @@ This package allows to easily connect any Laravel application to an instance of 
 
 ## Installation
 ### Using Composer
-The package can be installed using Composer:<br>
-`composer require mainstreamct/syncad-connector-laravel`<br><br>
-After installing, edit your `config/app.php`:
+First of all, install the package. Y'all know the drill, but as a reminder:<br>
+`composer require mainstreamct/syncad-connector-laravel`<br>
+Then publish the configuration files using:<br/>
+```php artisan vendor:publish```
+
+###### Laravel 5.5 and below
+For Laravel 5.5 and below, add this to your `config/app.php`:
 ```php
 // Providers array:
   mainstreamct\SyncadConnectorLaravel\SyncadConnectorServiceProvider::class,
 // Aliases array:
   'Syncad' => mainstreamct\SyncadConnectorLaravel\Syncad::class,
 ```
-...and publish the configuration files using:<br/>
-```php artisan vendor:publish```
 
-
+###### Laravel 5.6 and up
+You're all ready to rock! Thanks to package discovery, you don't need to manually add the service provider to your `config/app.php`.
 
 ## Configuration
 ### Connecting things up

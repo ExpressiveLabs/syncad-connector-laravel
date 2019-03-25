@@ -31,7 +31,7 @@
 
     static function pokesLogin($data) {
       $user = User::where('email', $data->email)->first();
-      if(Hash::check($data->token, $user->token)) {
+      if(Hash::check($data->token, $user->syncad_token)) {
         $data['key'] = $user->reKey();
         return $data;
       }

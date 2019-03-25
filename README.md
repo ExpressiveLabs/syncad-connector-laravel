@@ -8,6 +8,8 @@ This package allows to easily connect any Laravel application to an instance of 
 1. [Installation](#installation)<br>
     1. [Using Composer](#using-composer)
 2. [Configuration](#configuration)
+    1. [Connecting things up](#connecting-things-up)
+    1. [Configuration options](#configuration-options)
 3. [Usage](#usage)
 4. [Bugs](#bugs)
 

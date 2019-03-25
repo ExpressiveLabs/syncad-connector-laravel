@@ -1,5 +1,5 @@
 <?php
-  namespace MainstreamCT\SyncadConnector;
+  namespace MainstreamCT\SyncadConnectorLaravel;
 
   use App\User;
 

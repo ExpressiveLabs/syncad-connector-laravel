@@ -1,5 +1,5 @@
 <?php
-  namespace MainstreamCT\SyncadConnector;
+  namespace MainstreamCT\SyncadConnectorLaravel;
 
   use Illuminate\Support\ServiceProvider;
 
@@ -24,7 +24,7 @@
       $this->loadMigrationsFrom(__DIR__.'/src/migrations');
 
       // Load the package middleware
-      $this->app['router']->aliasMiddleware('syncad', MainstreamCT\SyncadConnector\syncadGuard::class);
+      $this->app['router']->aliasMiddleware('syncad', MainstreamCT\SyncadConnectorLaravel\syncadGuard::class);
     }
 
     /**

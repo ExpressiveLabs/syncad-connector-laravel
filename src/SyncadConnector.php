@@ -33,8 +33,8 @@
       return $key === config('app.syncad.key');
     }
 
-    public function testConnection(Request $request) {
-      $data['status'] = $this->validateKey($request->key);
+    public function testConnection($key) {
+      $data['status'] = $this->validateKey($key);
       $data['name'] = 'inHouse';
       $data['color'] = '#ff991e';
 

@@ -3,6 +3,7 @@
 
   use App\User;
   use Illuminate\Http\Request;
+  use Illuminate\Support\Facades\Auth;
 
   class SyncadConnector
   {
@@ -23,8 +24,8 @@
       return $data;
     }
 
-    public function authenticate(Request $request) {
-      $user = User::where('syncad_key', $request->key)->first();
+    static function authenticate($key, $args) {
+      $user = User::where('syncad_key', $key)->first();
       if(Auth::loginUsingId($user->id)) {
         return redirect('/admin');
       }
@@ -35,9 +36,14 @@
     }
 
     static function testConnection($key) {
-      $data['status'] = self::validateKey($key);
-      $data['name'] = 'inHouse';
-      $data['color'] = '#ff991e';
+      $status = self::validateKey($key);
+
+      if($status) {
+        $data['name'] = config('syncad.name');
+        $data['color'] = config('syncad.color');
+      }
+
+      $data['status'] = $status;
 
       return $data;
     }

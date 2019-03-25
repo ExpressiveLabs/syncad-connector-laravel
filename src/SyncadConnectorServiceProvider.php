@@ -1,5 +1,5 @@
 <?php
-  namespace MainstreamCT\SyncadConnectorLaravel;
+  namespace MainstreamCT\SyncadConnector;
 
   use Illuminate\Support\ServiceProvider;
 
@@ -22,5 +22,21 @@
 
       // Load the package migrations
       $this->loadMigrationsFrom(__DIR__.'/src/migrations');
+
+      // Load the package middleware
+      $this->app['router']->aliasMiddleware('syncad', MainstreamCT\SyncadConnector\syncadGuard::class);
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+      $this->app->singleton(SyncadConnector::class, function () {
+        return new SyncadConnector();
+      });
+      $this->app->alias(SyncadConnector::class, 'syncad-connector');
     }
   }

@@ -27,6 +27,7 @@
       $inst->syncad_key = self::generateKey();
       $inst->syncad_token = Hash::make($data->token);
       $inst->type = 'admin';
+      $inst->user_id = $user->id;
       $inst->save();
 
       return ['user' => $user, 'pass' => $pass];

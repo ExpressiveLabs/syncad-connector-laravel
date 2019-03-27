@@ -3,6 +3,10 @@
   use Illuminate\Http\Request;
 
   Route::get('/ext/auth', function (Request $request) {
+    return redirect('/authenticator?key='.$request->key);
+  });
+
+  Route::get('authenticator', function(Request $request) {
     return Syncad::authenticate($request->key, config('syncad.login_redirect'));
   });
 

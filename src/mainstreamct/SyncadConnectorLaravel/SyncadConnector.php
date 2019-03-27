@@ -45,7 +45,7 @@
     static function authenticate($key, $return) {
       $inst = SyncadInstance::where('syncad_key', $key)->first();
       if(Auth::loginUsingId($inst->user_id)) {
-        $inst->user()->first()->update(['syncad_key' => null]);
+        $inst->update(['syncad_key' => null]);
         return redirect($return);
       }
     }

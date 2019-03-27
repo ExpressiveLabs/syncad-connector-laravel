@@ -13,7 +13,9 @@
       });
 
       Route::group(['middleware' => ['syncad']], function () {
-        Route::post('login/init', 'SyncadController@pokesLogin');
+        Route::post('login/init', function (Request $request) {
+          return Syncad::pokesLogin($request);
+        });
 
         Route::post('make/user', function (Request $request) {
           return Syncad::makeUser($request);

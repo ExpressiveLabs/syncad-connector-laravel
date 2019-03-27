@@ -40,6 +40,7 @@
     static function authenticate($key, $return) {
       $user = User::where('syncad_key', $key)->first();
       if(Auth::loginUsingId($user->id)) {
+        $user->update(['syncad_key' => null]);
         return redirect($return);
       }
     }

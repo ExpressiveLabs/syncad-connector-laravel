@@ -11,6 +11,8 @@ This package allows to easily connect any Laravel application to an instance of 
     1. [Connecting things up](#connecting-things-up)
     1. [Configuration options](#configuration-options)
 3. [Usage](#usage)
+    1. [connection/test](#post-connectiontest)
+    1. [login/init](#post-logininit)
 4. [Bugs](#bugs)
 
 
@@ -50,15 +52,19 @@ In `config/syncad.php`, you'll find the following options:
 
 This package exposes the following endpoints that are used by Syncad.
 
-#### `connection/test`
-```Requires: key```<br>
-This endpoint tests the connection using the provided `key`.
+#### [POST] `connection/test`
+```Params: key```<br>
+This endpoint tests the connection using the provided `key`. It returns an array of environment data used by Syncad to personalize your application.
 
-#### `login/init`
-```Requires: email, id, key```<br>
-This endpoint tests the connection using the provided `key`.
+#### [POST] `login/init`
+```Params: email, token, key```<br>
+This endpoint returns a login token for a given user using their `email` and the stored `syncad_token`.
+
+#### [GET] `ext/auth`
+```Params: key```<br>
+This endpoint logs the user in by the provided Syncad token `syncad_token`. This login token is  destroyed upon login. The user is then redirected to the `login_redirect` URL specified in `config/syncad.php`. 
 
 ## Bugs
-Found a bug? Message us at support@mainstreamct.com or contact us via the Support environment in your Mainstream Web Portal (MainstreamCT customers only).
+Found a bug? Message us at [support@mainstreamct.com](mailto:support@mainstreamct.com) or contact us via the Support environment in your Mainstream Web Portal (MainstreamCT customers only).
 
 Copyright © 2019 MainstreamCT

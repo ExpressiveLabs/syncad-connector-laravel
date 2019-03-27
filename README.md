@@ -13,6 +13,7 @@ This package allows to easily connect any Laravel application to an instance of 
 3. [Usage](#usage)
     1. [connection/test](#post-connectiontest)
     1. [login/init](#post-logininit)
+    1. [ext/auth](#get-extauth)
 4. [Bugs](#bugs)
 
 
@@ -44,9 +45,10 @@ You're all ready to rock! Thanks to package discovery, you don't need to manuall
 
 ### Configuration options
 In `config/syncad.php`, you'll find the following options:
-1. `key` contains your application key, this should be set in your `.env` file
-1. `color` specifies a unique app color used in your Syncad dashboard to distinguish your application
-1. `name` is the application name that is stored on your Syncad instance upon connecting. It defaults to your `.env`'s `APP_NAME` key
+1. `key` contains your application key, this should be set in your `.env` file.
+1. `color` specifies a unique app color used in your Syncad dashboard to distinguish your application.
+1. `login_redirect` specifies the URL a user is redirected to upon login. This defaults to `/admin`.
+1. `name` is the application name that is stored on your Syncad instance upon connecting. It defaults to your `.env`'s `APP_NAME` key.
 
 ## Usage
 
